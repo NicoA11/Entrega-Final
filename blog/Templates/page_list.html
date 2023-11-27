@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Páginas</title>
+</head>
+<body>
+
+{% if pages %}
+    <h1>Listado de Páginas</h1>
+    {% for page in pages %}
+        <div>
+            <h2>{{ page.title }}</h2>
+            <p>{{ page.summary }}</p>
+            <a href="{% url 'page_detail' page.id %}">Leer más</a>
+        </div>
+    {% endfor %}
+{% else %}
+    <!-- No hay páginas, mostrar mensaje -->
+    {% include 'blog/no_pages.html' %}
+{% endif %}
+
+</body>
+</html>
